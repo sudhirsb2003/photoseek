@@ -1,0 +1,25 @@
+<h1>Listing camera_types</h1>
+
+<table id="hor-minimalist-a" summary="Employee Pay Sheet">
+    <thead>
+    <tr>
+      <th>Name</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @camera_types.each do |camera_type| %>
+      <tr>
+        <td><%= camera_type.name %></td>
+        <td><%= link_to 'Show', camera_type %></td>
+        <td><%= link_to 'Edit', edit_camera_type_path(camera_type) %></td>
+        <td><%= link_to 'Destroy', camera_type, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<br>
+
+<%= link_to 'New Camera type', new_camera_type_path, :id=> "gobutton" %>

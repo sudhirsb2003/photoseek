@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Photoseeker</title>
+  <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true %>
+  <%= javascript_include_tag 'application', 'data-turbolinks-track' => true %>
+  <%= csrf_meta_tags %>
+</head>
+<body>
+<div class="header" style="height:30px;border-bottom:1px solid silver;">
+<b style="font-size:20px;color:#0077BE;">PHOTOSEEKER</b>
+<div id="nav" style ="float:right;padding-right:30px;">
+  <% if user_signed_in? %>
+  <%#= link_to "Admin", root_path if current_user.admin? %>
+  <b><%= current_user.profile.full_name if current_user.profile.present? %></b>
+  <%= link_to "Complete your Profile", new_profile_path unless current_user.profile %>
+  (<%= link_to "Logout", destroy_user_session_path, method: :delete  %>)
+  <% else %>
+   <%= link_to "New User", new_user_registration_path %>
+   <%= link_to "Login", new_user_session_path %>
+  <% end %>
+</div>
+</div>
+<div class="container" style="padding:20px;">
+<%= yield %>
+</div>
+</body>
+</html>

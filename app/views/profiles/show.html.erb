@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Full name:</strong>
+  <%= @profile.full_name %>
+</p>
+
+<p>
+  <strong>Camera type:</strong>
+  <%= @profile.camera_type_id %>
+</p>
+
+<p>
+  <strong>Camera model name:</strong>
+  <%= @profile.camera_model_name %>
+</p>
+
+<p>
+  <strong>Profession:</strong>
+  <%= @profile.profession %>
+</p>
+
+<p>
+  <strong>Mobile number:</strong>
+  <%= @profile.mobile_number %>
+</p>
+
+<%= link_to 'Edit', edit_profile_path(@profile) %> |
+<%= link_to 'Back', profiles_path %>
