@@ -17,7 +17,7 @@
   </div>
   <div class="field">
     <%= f.label :camera_type_id %><br>
-    <%= f.number_field :camera_type_id %>
+    <%= collection_select(:profile, :camera_type_id, CameraType.all, :id, :name) %>                  
   </div>
   <div class="field">
     <%= f.label :camera_model_name %><br>

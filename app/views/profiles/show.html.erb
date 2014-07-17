@@ -1,29 +1,60 @@
-<p id="notice"><%= notice %></p>
 
-<p>
-  <strong>Full name:</strong>
-  <%= @profile.full_name %>
-</p>
 
-<p>
-  <strong>Camera type:</strong>
-  <%= @profile.camera_type_id %>
-</p>
+<%= link_to 'Edit Profile', edit_profile_path(@profile) %> |
+<%= link_to 'Make new album', profiles_path %>
 
-<p>
-  <strong>Camera model name:</strong>
-  <%= @profile.camera_model_name %>
-</p>
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+    
+      <div class="panel panel-default">
+      <div class="panel-body">
+                  <div class="row">
+                        <div class="col-xs-12 col-sm-8">
+                            <h2><%= @profile.full_name %></h2>
+                            <p><strong>Camera Type: </strong> <%= @profile.camera_type.name %> </p>
+                            <p><strong>Model Name: </strong> <%= @profile.camera_model_name %> </p>
+                            <p><strong>Skills: </strong>
+                                <span class="label label-info tags">html5</span> 
+                                <span class="label label-info tags">css3</span>
+                                <span class="label label-info tags">jquery</span>
+                                <span class="label label-info tags">bootstrap3</span>
+                            </p>
+                        </div><!--/col-->          
+                        <div class="col-xs-12 col-sm-4 text-center">
+                                <% unless @profile.avatar.present? %>
+                                <%= form_for(@profile) do |f| %>
+                                 <b> Upload Avatar </b>
+                                 <%= f.file_field "avatar" %>
+                                 <%= f.submit  "Upload" %>
+                                <% end %>
 
-<p>
-  <strong>Profession:</strong>
-  <%= @profile.profession %>
-</p>
+                                <% else %>
+                                  <%= image_tag @profile.avatar %>
+                                <% end %>
+                                <br><br>
+                        </div><!--/col-->
 
-<p>
-  <strong>Mobile number:</strong>
-  <%= @profile.mobile_number %>
-</p>
+                        <div class="col-xs-12 col-sm-4">
+                            <h2><strong><%= @profile.profession %></strong></h2>                    
+                            <p><strong><%= @profile.mobile_number %></strong></p> 
+                            <p><small>Followers</small></p>
+                            <button class="btn btn-success btn-block"><span class="fa fa-plus-circle"></span> Follow </button>
+                        </div><!--/col-->
 
-<%= link_to 'Edit', edit_profile_path(@profile) %> |
-<%= link_to 'Back', profiles_path %>
+                        <div class="col-xs-12 col-sm-4">
+                            <h2><strong>245</strong></h2>                    
+                            <p><small>Following</small></p>
+                            <button class="btn btn-info btn-block"><span class="fa fa-user"></span> View Profile </button>
+                        </div><!--/col-->
+                        <div class="col-xs-12 col-sm-4">
+                            <h2><strong>43</strong></h2>                    
+                            <p><small>Snippets</small></p>
+                            <button type="button" class="btn btn-primary btn-block"><span class="fa fa-gear"></span> Options </button>  
+                        </div><!--/col-->
+                  </div><!--/row-->
+              </div><!--/panel-body-->
+          </div><!--/panel-->
+    </div>
+  </div>
+</div>
