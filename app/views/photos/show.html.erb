@@ -13,3 +13,7 @@
 
 <%= link_to 'Edit', edit_photo_path(@photo) %> |
 <%= link_to 'Back', photos_path %>
+
+
+<%= javascript_include_tag 'photos' %>
+<input data-url="/articles/<%= @photo.id %>/photos" id="fileupload" name="photo[photo]" type="file">- See more at: http://amgrade.com/blogs/thoughts/multiple-files-upload-rails#sthash.0OldtCtJ.dpuf</input>

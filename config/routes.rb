@@ -14,7 +14,7 @@ Rails.application.routes.draw do
   # You can have the root of your site routed with "root"
   #root 'dashboards#index'
 authenticated :user do
-  root 'dashboards#index'
+  root 'profiles#show'
 end  
 
 unauthenticated do

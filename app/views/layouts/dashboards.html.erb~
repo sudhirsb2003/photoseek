@@ -46,7 +46,7 @@
     <% if user_signed_in? %>
     <%#= link_to "Admin", root_path if current_user.admin? %>
     <b><%= current_user.profile.full_name if current_user.profile.present? %></b>
-    <%= link_to "Complete your Profile", new_profile_path(username: current_user.id) unless current_user.profile %>
+    <%= link_to "Complete your Profile", new_profile_path(username: current_user.email) unless current_user.profile %>
     (<%= link_to "Logout", destroy_user_session_path, method: :delete  %>)
     <% else %>
     <ul>

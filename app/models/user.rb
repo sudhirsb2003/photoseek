@@ -6,7 +6,8 @@ class User < ActiveRecord::Base
   has_one :profile
   has_many :albums
   acts_as_followable
-    acts_as_follower
+  acts_as_follower
+
   def admin!
    self.admin = true
    self.save!    
